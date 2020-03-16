@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ink</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script defer src="assets/js/static_app.js"></script>
+</head>
+
+<body>
+
+    <h2>Printer ink lookup</h2>
+
+    <p>
+        <h3>Search</h3>
+
+        <p>
+            <label for="brand">Brand:</label>
+            <select id="brand">
+                <option value="brand--all">All</option>
+                <option value="brand--hp">HP</option>
+                <option value="brand--lexmark">Lexmark</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="color">Color:</label>
+            <select id="color">
+                <option value="color--all">(all) Lazer cartridge</option>
+                <option value="color--black">Black</option>
+                <option value="color--cyan">Cyan</option>
+                <option value="color--magenta">Magenta</option>
+                <option value="color--yellow">Yellow</option>
+            </select>
+        </p>
+
+    </p>
+
+    <p>
+        <button onclick="search()">Search</button>
+    </p>
+
+    <p id="status"></p>
+
+</body>
+
+</html>
+
+
+
+// Ink table
+app.get("/view", function(req, res) {
+    var brand = req.query.brand;
+    var color = req.query.color;
+
+    console.log("Searching for inks with parameters: brand=" + brand + ", color=" + color);
+
+    // Read database
+    fs.readFile("static/db/database.json", (err, data) => {
+        if (err) throw err;
+        let inkData = JSON.parse(data);
+
+        let validInksStr = "";
+        let validInksJson;
+        
+        console.log("Evaluating inks...");
+        for (i = 0; i < inkData.inks.length; i++) {
+
+            if (brand == "all" || inkData.inks[i].brand.toLowerCase() == brand) {
+                console.log("Brand is valid: " + JSON.stringify(inkData.inks[i]) + ", checking to see if color is valid...");
+                if (color == "all" || inkData.inks[i].color.toLowerCase() == color) {
+                    console.log("Color is valid: " + JSON.stringify(inkData.inks[i]) + ", adding to list");
+                    validInksStr += JSON.stringify(inkData.inks[i]);
+                    validInksJson += inkData.inks[i];
+                }
+            }
+
+        }
+
+        console.log("VALID INKS: " + validInksStr);
+
+        // if there are no valid inks
+        if (validInksStr == "") {
+            res.send("<p>No valid inks found for those paramters - <a href='/'>go back</a></p>");
+        } else {
+            res.send("<h2>Valid inks:</h2><p><code>" + validInksStr + "</code></p>");
+            //res.render("results.pug");
+        }
+        
+    });
+
+});

@@ -1,0 +1,9 @@
+.page-content {
+    margin: 10px;
+}
+
+/* Buttons (links) on front page */
+.fp-btn {
+    display: block !important;
+    padding: 5px;
+}

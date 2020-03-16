@@ -1,0 +1,17 @@
+{
+    "inks": [
+
+        { "color": "all", "brand": "HP", "name": "Toner Cartridge ELI75434 05A", "part_number": "209069-00", "stock": "2" },
+        { "color": "all", "brand": "HP", "name": "Toner Cartridge ELI75805 80A", "part_number": "209070-00", "stock": "2" },
+        { "color": "all", "brand": "HP", "name": "Toner Cartridge ELI75940 14X", "part_number": "209071-00", "stock": "1" },
+        { "color": "all", "brand": "Lexmark", "name": "Imaging Unit 50F0Z00", "part_number": "209072-00", "stock": "1" },
+        { "color": "all", "brand": "Lexmark", "name": "High Yield Toner 50F1X0E", "part_number": "209073-00", "stock": "2" },
+        { "color": "Cyan", "brand": "Lexmark", "name": "70C1HC0", "part_number": "209074-00", "stock": "2" },
+        { "color": "Black", "brand": "Lexmark", "name": "70C1HK0", "part_number": "209075-00", "stock": "2" },
+        { "color": "Magenta", "brand": "Lexmark", "name": "70C1HM0", "part_number": "209076-00", "stock": "2" },
+        { "color": "Yellow", "brand": "Lexmark", "name": "70C1HY0", "part_number": "209077-00", "stock": "2" },
+        { "color": "Black", "brand": "Lexmark", "name": "Color Imaging Kit C540X74G", "part_number": "209078-00", "stock": "1" },
+        { "color": "Black", "brand": "Lexmark", "name": "Waste Toner Bottle C540X75G", "part_number": "209079-00", "stock": "1" }        
+
+    ]
+}

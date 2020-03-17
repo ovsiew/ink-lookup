@@ -5,7 +5,9 @@ let port = 4000;
 let path = require("path");
 let fs = require("fs");
 
-// Configuration
+// ========================================
+// Config
+// ========================================
 app.use(express.static(path.join(__dirname, "/static")));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "/views"));
@@ -20,13 +22,13 @@ app.get("/", function(req, res) {
 });
 
 // View table
-app.get("/view-ink", function(req, res) {
-
+app.get("/ink-table", function(req, res) {
+    res.render("table.pug", { "test": "Test Content"})
 });
 
 // Downloads
 app.get("/excel-sheet", function(req, res) {
-    
+    // load excel sheet file from assets folder
 });
 
 // Requisition instructions
@@ -39,7 +41,12 @@ app.get("/about", function(req, res) {
     res.sendFile("about.html");
 });
 
-// Start
+// Help
+app.get
+
+// ========================================
+// Start server on port 4000
+// ========================================
 app.listen(port, () => {
     console.log("Listening on " + port);
 });

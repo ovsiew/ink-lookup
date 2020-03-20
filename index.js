@@ -23,7 +23,17 @@ app.get("/", function(req, res) {
 
 // View table
 app.get("/ink-table", function(req, res) {
-    res.render("table.pug", { "test": "Test Content"})
+
+    // load selection page
+    
+
+    // get results from submitting selection page url
+
+    // load table.pug with those results
+
+    res.render("table.pug", { "test": "Test Content"});
+
+
 });
 
 // Downloads
@@ -42,7 +52,9 @@ app.get("/about", function(req, res) {
 });
 
 // Help
-app.get
+app.get("/help", function(req, res) {
+    res.sendFile("help.html");
+});
 
 // ========================================
 // Start server on port 4000
